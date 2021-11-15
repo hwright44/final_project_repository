@@ -1,4 +1,5 @@
 import random
+import pprint
 
 board = []
 
@@ -11,9 +12,9 @@ def print_board(board):
 print_board(board)
 
 
-def rand_duck(cells):
+def rand_duck():
         """Places a "duck" in a random position on the board
-        Args:
+        Side effects: prints grid to the console
         """
         duck = "\u26BD"
         cells = [["0"] * 10 for i in range(10)]
@@ -21,3 +22,4 @@ def rand_duck(cells):
                 x_coordinate = random.randrange(10)
                 y_coordinate = random.randrange(10)
                 cells[x_coordinate][y_coordinate] = duck
+        pprint.pprint(cells)
