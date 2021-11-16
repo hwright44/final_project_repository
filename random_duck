@@ -12,5 +12,9 @@ def rand_duck():
                 y_coordinate = random.randrange(10)
                 cells[x_coordinate][y_coordinate] = duck
         pprint.pprint(cells)
-        
-rand_duck()
+
+def main():
+    rand_duck()
+    
+if __name__ == "__main__":
+    main()
