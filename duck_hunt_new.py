@@ -29,7 +29,9 @@ class Player:
         elif player_input[1].isalpha():
             print("INVALID: y-value of coordinate cannot be a letter!")
         elif player_input[0] not in X_VALUES:
-            print("x-coordinate cannot has to be letters a through g!")
+            print("INVALID: x-coordinate has to be letters a through g!")
+        elif player_input[1] not in Y_VALUES:
+            print("INVALID: y-coordinate has to be a number 1 through 7!")
         else:
             player_response = player_input[0] + player_input[1]
             return player_response
