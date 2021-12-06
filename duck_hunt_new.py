@@ -28,6 +28,8 @@ class Player:
             print("INVALID: x-value of coordinate cannot be a digit!")
         elif player_input[1].isalpha():
             print("INVALID: y-value of coordinate cannot be a letter!")
+        elif player_input[0] not in X_VALUES:
+            print("x-coordinate cannot has to be letters a through g!")
         else:
             player_response = player_input[0] + player_input[1]
             return player_response
