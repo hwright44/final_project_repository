@@ -35,3 +35,12 @@ class Player:
         else:
             player_response = player_input[0] + player_input[1]
             return player_response
+        
+an = Player()
+player_attempts = list()
+while True:
+    attempt = an.player_coordinates()
+    player_attempts.append(attempt)
+    if len(player_attempts) >= 7:
+        break
+print(player_attempts)
