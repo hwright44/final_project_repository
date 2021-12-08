@@ -36,15 +36,15 @@ class Player:
             player_response = player_input[0] + player_input[1]
             return player_response
    
-    class Shooter():
-        """placeholder function for user input"""
-        def __init__(self, ammo, shot):
-            """intializes int ammo which is going to be used for an ammo
-            counter where the user has 6 shots per round and ammo is
-            reduced by one every shot. Also intializes the shot which
-            is a user input of where they placed the shot.git"""
-            self.ammo = ammo
-            self.shot = shot
+class Shooter():
+    """placeholder function for user input"""
+    def __init__(self, ammo, shot):
+        """intializes int ammo which is going to be used for an ammo
+        counter where the user has 6 shots per round and ammo is
+        reduced by one every shot. Also intializes the shot which
+        is a user input of where they placed the shot.git"""
+        self.ammo = ammo
+        self.shot = shot
         
     def shoot(self, hits):
         """Action of shooting.
