@@ -4,19 +4,19 @@ X_VALUES = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
 Y_VALUES = ['1', '2', '3', '4', '5', '6', '7']
 
 class Duck:
-    def __init__(self, duck):
-        self.duck = duck
-    
-    def duck_position(self, duck_position):
+    def __init__(self, duck_position):
         self.duck_position = duck_position
+    
+    def duck_position(self):
         x_coordinate = random.choice(X_VALUES)
         y_coordinate = random.choice(Y_VALUES)
-        duck_position = x_coordinate + y_coordinate
-        return duck_position
+        self.duck_position = x_coordinate + y_coordinate
+        return self.duck_position
     
 class Player:
-    def __init__(self):
-        pass
+    def __init__(self, name, difficulty_choice, score):
+        self.name = name
+        self.difficulty_choice = difficulty_choice
     
     def player_coordinates(self):
         player_input = input("Quick! Shoot the duck! Enter the coordinates: ")
@@ -70,14 +70,13 @@ class Shooter():
         
 class Scoreboard():
     """Takes the Username and tallies score"""
-    def __init__(self, name, score = 0):
+    def __init__(self, score = 0):
         """Intializes attributes.
         
         Attributes: str name which represents the users name. int
         score which represents the score based on the amount of times
         the user hit the duck.
         """
-        self.name = name
         self.score = score
     
     def get_score(self, score, hits):
@@ -97,12 +96,13 @@ class Scoreboard():
         else:
             score = 0
         return score
-        
-an = Player()
-player_attempts = list()
-while True:
-    attempt = an.player_coordinates()
-    player_attempts.append(attempt)
-    if len(player_attempts) >= 7:
-        break
-print(player_attempts)
+
+def main():        
+    an = Player()
+    player_attempts = list()
+    while True:
+        attempt = an.player_coordinates()
+        player_attempts.append(attempt)
+        if len(player_attempts) >= 7:
+            break
+    print(player_attempts)
