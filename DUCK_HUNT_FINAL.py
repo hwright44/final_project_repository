@@ -57,4 +57,4 @@ def hits():
     print(len(same))
     print("This is how long it took the function to run: ", end - start)
     
-#def scoring():
+    
