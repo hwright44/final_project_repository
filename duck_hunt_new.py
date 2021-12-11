@@ -98,11 +98,21 @@ class Scoreboard():
             score = 0
         return score
         
-an = Player()
-player_attempts = list()
-while True:
-    attempt = an.player_coordinates()
-    player_attempts.append(attempt)
-    if len(player_attempts) >= 7:
-        break
-print(player_attempts)
+def main():
+    #print the duck is moving
+    #show the location of the duck
+    #Shoot the duck
+    #keep looping until the round is over
+    #time.time
+    #time.sleep
+    
+    
+    
+    an = Player()
+    player_attempts = list()
+    while True:
+        attempt = an.player_coordinates()
+        player_attempts.append(attempt)
+        if len(player_attempts) >= 7:
+            break
+    print(player_attempts)
