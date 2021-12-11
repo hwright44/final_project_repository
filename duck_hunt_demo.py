@@ -23,15 +23,24 @@ class Board:
                 y_coordinate = random.randrange(10)
                 self.board[x_coordinate][y_coordinate] = duck
         pprint.pprint(self.board)
-
-def move_duck():
-        """Currently a placeholder for method which will move the duck.
         
-        Side effects:
-                Causes 1 second delay of terminal and prints that the duck is moving.
-        """
-        print("the duck is moving")
-        sleep(1)
+    def get_coordinate(self, x_coordinate, y_coordinate):
+        self.y_coordinate = y_coordinate
+        self.x_coordinate = x_coordinate
+        columns = len(self.board[0])
+        self.y_coordinate = self.board[(columns - 1) - y_coordinate]
+        rows = self.board[self.y_coordinate][x_coordinate]
+        return rows
+         
+
+#def move_duck():
+#        """Currently a placeholder for method which will move the duck.
+#        
+#        Side effects:
+#                Causes 1 second delay of terminal and prints that the duck is moving.
+#        """
+#        print("the duck is moving")
+#        sleep(1)
 
 def play(duck_pos, difficulty = 4):
         """Play a round of duck hunt. The user must input the location of the duck before 
@@ -103,7 +112,7 @@ class Shooter():
         self.ammo = 6
         hits = 0
         while self.ammo > 0:
-            if self.shot == Play(duck_pos):
+            if self.shot == play(duck_pos):
                 self.ammo -= 1
                 return hits + 1
             else:
@@ -140,13 +149,3 @@ class Scoreboard():
         else:
             score = 0
         return score
-    
-    def main(name, score):
-        """Runs and displays name and score for a user
-        Attributes: str name, represents user input for their name.
-        int score, which represents the score based on the amount
-        of times the user hit the duck.
-        
-        Side Effects: prints user name and user score to console.
-        """
-        print(f"{name} : {score}XP")
