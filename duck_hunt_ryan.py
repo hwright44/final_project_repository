@@ -70,9 +70,9 @@ def hits(num_ducks, play_time):
     score = scoring(num_hits, player_time, num_ducks)
     print(i_list)
     print(f"This is the number of ducks: {num_ducks}")
-    print(num_hits)
-    print("This is how long it took the function to run: ", player_time)
-    print(score)
+    print(f"This is the number of hits you got: {num_hits}")
+    print(f"This is how long it took the function to run: {player_time}")
+    print(f"This is your final score: {score}")
     print(f"This is the goose: {goose}")
 
 def scoring(num_hits, player_time, num_ducks):
@@ -84,7 +84,7 @@ def scoring(num_hits, player_time, num_ducks):
 
 def difficulty():
     num_ducks = 0
-    diff_input = input("Which difficulty would you like to play on: Easy, Medium, or Hard?")
+    diff_input = input("Which difficulty would you like to play on: Easy, Medium, or Hard? ")
     if diff_input == "Easy":
         play_time = 15
         num_ducks = 5
@@ -98,9 +98,11 @@ def difficulty():
 
 
 def main():
-    num_rounds = input("How many rounds would you like to play?")
+    num_rounds = int(input("How many rounds would you like to play? "))
     play_time, num_ducks = difficulty()
     while num_rounds > 0:
         num_rounds -= 1
         hits(num_ducks, play_time)
-            
+
+if __name__ == "__main__":
+    main()
