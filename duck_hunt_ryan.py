@@ -9,6 +9,19 @@ class Duck:
         pass
     
     def duck_position(self, num_ducks):
+        """ Provides the Duck object a list of locations for the ducks. 
+            The coordinates for each duck's location is randomized from the 
+            'X_VALUES' and 'Y_VALUES' constants.
+            
+            Args:
+            num_ducks(int): the number of ducks in the round.
+            
+            Returns:
+            duck_list(list): the list of coordinates for each duck's location.
+            
+            Side effects:
+            The "duck list" empty list are filled with random duck positons.
+        """
         duck_list = []
         while len(duck_list) < num_ducks:
             x_coordinate = random.choice(X_VALUES)
@@ -26,6 +39,24 @@ class Player:
         pass
     
     def player_coordinates(self, num_ducks, play_time):
+        """ A user inputs the coordinates they think the duck is located at.
+            The user stops after the time is is finished and/or their input is
+            long enough.
+        
+            Args:
+            num_ducks(int): The number of ducks in the round.
+            playtime(int): The time it took the player to complete the round.
+            
+            Returns:
+            input_list(list): The list of coordinates the user input for targeting
+            the ducks.
+            
+            Side effects:
+            The empty list 'input_list' has user input, the coordinates, 
+            appended to 'input_list'
+            The 'total_time' variable is set to the difference of
+            the 'time.time()' and 'start_time'
+        """
         input_list = []
         total_time = 0
         while len(input_list) < num_ducks and total_time < play_time:
@@ -134,6 +165,17 @@ def difficulty():
 
 
 def main():
+    """ The user is prompted to start a game with a select number of rounds.
+        Then, the user is asked to select the difficulty. The game will start
+        with finding the ducks until the rounds are over.
+        
+        Side effects:
+        The number of rounds decrement as the user finishes one round after
+        another.
+        The 'hits()' function outputs many statements reviewing the user's
+        actions in the game. 
+    
+    """
     num_rounds = int(input("How many rounds would you like to play? "))
     play_time, num_ducks = difficulty()
     while num_rounds > 0:
