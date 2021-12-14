@@ -92,7 +92,7 @@ def difficulty():
         play_time = 10
         num_ducks = 6
     elif diff_input == "Hard":
-        play_time = 5
+        play_time = 8
         num_ducks = 7
     return play_time, num_ducks
 
