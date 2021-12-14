@@ -13,13 +13,13 @@ class Duck:
             The coordinates for each duck's location is randomized from the 
             'X_VALUES' and 'Y_VALUES' constants.
             
-            Args:
+        Args:
             num_ducks(int): the number of ducks in the round.
             
-            Returns:
+        Returns:
             duck_list(list): the list of coordinates for each duck's location.
             
-            Side effects:
+        Side effects:
             The "duck list" empty list are filled with random duck positons.
         """
         duck_list = []
@@ -43,15 +43,15 @@ class Player:
             The user stops after the time is is finished and/or their input is
             long enough.
         
-            Args:
+        Args:
             num_ducks(int): The number of ducks in the round.
             playtime(int): The time it took the player to complete the round.
             
-            Returns:
+        Returns:
             input_list(list): The list of coordinates the user input for targeting
             the ducks.
             
-            Side effects:
+        Side effects:
             The empty list 'input_list' has user input, the coordinates, 
             appended to 'input_list'
             The 'total_time' variable is set to the difference of
@@ -169,12 +169,11 @@ def main():
         Then, the user is asked to select the difficulty. The game will start
         with finding the ducks until the rounds are over.
         
-        Side effects:
+    Side effects:
         The number of rounds decrement as the user finishes one round after
         another.
         The 'hits()' function outputs many statements reviewing the user's
         actions in the game. 
-    
     """
     num_rounds = int(input("How many rounds would you like to play? "))
     play_time, num_ducks = difficulty()
