@@ -54,6 +54,19 @@ class Player:
         return input_list
 
 def hits(num_ducks, play_time):
+    """Represents a round of duck hunt. Creates a list of the positions of
+    as many ducks need to be created. Assigns a goose. Gets a list of the player's shot
+    coordinates and finds which ducks got shot. Prints the round stats.
+    
+    Args:
+        play_time(int): The time limit for the round.
+        num_ducks(int): The number of ducks in the round.
+        
+    Side effects:
+        Prints the list of player shots, the number of ducks, the number of
+        hits the user got, how long they played for, the user's final score
+        and the location of the goose.
+    """
     d = Duck()
     d_list = d.duck_position(num_ducks)
     goose = d.goose(d_list)
@@ -76,6 +89,16 @@ def hits(num_ducks, play_time):
     print(f"This is the goose: {goose}")
 
 def scoring(num_hits, player_time, num_ducks):
+    """Calculates the player's score after playing a round.
+    
+    Args:
+    num_hits(int): The number of ducks the player hit.
+    player_time(int): The time it took the player to complete the round.
+    num_ducks(int): The number of ducks in the round.
+    
+    Returns:
+        int: The user's score for the round.
+    """
     score = num_hits * (1 / player_time)
     final_score = score * 1000
     if num_hits >= num_ducks:
@@ -83,6 +106,19 @@ def scoring(num_hits, player_time, num_ducks):
     return round(final_score)
 
 def difficulty():
+    """Prompts the user for a difficulty selection and assigns the playtime and
+    number of ducks in the round based off of the chosen difficulty.
+    
+    Returns:
+        play_time(int): The number of seconds the player has to shoot
+        all the ducks in the round.
+        num_ducks(int): The number of ducks for the user to shoot in the
+        round.
+        
+    Side effects:
+        Prints a question asking the user which difficulty they would like
+        to play on. Creates an input box for the user to answer in.
+    """
     num_ducks = 0
     diff_input = input("Which difficulty would you like to play on: Easy, Medium, or Hard? ")
     if diff_input == "Easy":
