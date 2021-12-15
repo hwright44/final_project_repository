@@ -1,7 +1,7 @@
 # final_project_repository
 final project repository
 
-The purpose of our Duck_Hunt_final.py file is to create a rendention of the popular NES game of the same name. Instead of being a p2p shooter, our program takes a user input fron the keyboard and prompts the user to shoot the coordinates of ducks in an alotted time based on a chosen difficulty. 
+The purpose of our duck_hunt.py file is to create a rendention of the popular NES game of the same name. Instead of being a p2p shooter, our program takes a user input fron the keyboard and prompts the user to shoot the coordinates of ducks in an alotted time based on a chosen difficulty. 
 
 To run our program: simply enter into the command line: Duck_Hunt_final.py This will also create a scoreboard.csv file in the repository.
 
