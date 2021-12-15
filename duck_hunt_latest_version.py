@@ -121,7 +121,7 @@ def hits(i, num_ducks, play_time):
     print(i_list)
     print(f"This is the number of ducks: {num_ducks}")
     print(f"This is the number of hits you got: {num_hits}")
-    print(f"This is how long it took the function to run: {round(player_time, 2)}")
+    print(f"This is how long it took you to complete the round: {round(player_time, 2)}")
     print(f"This is your final score: {score}")
     print(f"This is the goose: {goose}")
     return num_hits, player_time, score 
