@@ -35,6 +35,6 @@ Hunter Wright: Scoreboard function
     
  I used similar code to write to a csv file multiple times without creating another header.
  If the file did not exist, we created one. If it did exist we just simply added to the existing file.
- I neede help from this website in order to make the code function properly. 
+ I needed help from this website in order to make the code function properly. 
 
 
