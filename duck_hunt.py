@@ -38,7 +38,8 @@ class Duck:
         goose = random.choice(duck_list)
         return goose
         
-class Player:
+class Player: 
+    """Provides a player class"""
     def __init__(self):
         self.hits = 0
         self.time = 0
@@ -193,6 +194,9 @@ def scoreboard(player, score, diff_input, counter_rounds):
             writing_file.writerow(dict_rows)
             
 def scoreboard_graphs():
+    """This function creates two graphs based on the scoreboard csv. One of the graph is a bar graph that displays the scores of players on easy
+    difficulty. The other graph displays a histogram of the score distrubution based on frequency.
+    """
     scoreboard_df = pd.read_csv("scoreboard.csv")
     bar_chart = scoreboard_df[(scoreboard_df["Difficulty"] == 'Easy') | (scoreboard_df["Difficulty"] == 'easy')].plot.bar(x = "Initials", y = 'Score')
     bar_chart
@@ -201,6 +205,10 @@ def scoreboard_graphs():
     histogram
     
 def welcome():
+    """Welcome function meant to orient the user and give them information about the game while giving them ample time to read
+    
+    Side Effects: Several Print statement and the implementation of the time module which delays the printing of each line by 3 seconds.
+    """
     print("Welcome to Duck Hunt!")
     time.sleep(3)
     print("You will first select the number of rounds you want to play.")
