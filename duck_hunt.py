@@ -55,6 +55,7 @@ class Player:
     def __init__(self):
         self.hits = 0
         self.time = 0
+        self.diff_input = ""
     
     def player_coordinates(self, num_ducks, play_time):
         """ A user inputs the coordinates they think the duck is located at.
@@ -157,7 +158,7 @@ def scoring(num_hits, player_time, num_ducks):
         final_score *= 1.2
     return round(final_score)
 
-def difficulty():
+def difficulty(self):
     """Prompts the user for a difficulty selection and assigns the playtime and
     number of ducks in the round based off of the chosen difficulty.
     
@@ -172,17 +173,17 @@ def difficulty():
         to play on. Creates an input box for the user to answer in.
     """
     num_ducks = 0
-    diff_input = input("Which difficulty would you like to play on: Easy, Medium, or Hard? ")
-    if diff_input.capitalize() == "Easy":
+    self.diff_input = input("Which difficulty would you like to play on: Easy, Medium, or Hard? ")
+    if self.diff_input.capitalize() == "Easy":
         play_time = 15
         num_ducks = 5
-    elif diff_input.capitalize() == "Medium":
+    elif self.diff_input.capitalize() == "Medium":
         play_time = 10
         num_ducks = 6
-    elif diff_input.capitalize() == "Hard":
+    elif self.diff_input.capitalize() == "Hard":
         play_time = 8
         num_ducks = 7
-    return play_time, num_ducks, diff_input
+    return play_time, num_ducks, self.diff_input
 
 
 def scoreboard(player, score, diff_input, counter_rounds):
@@ -217,7 +218,7 @@ def scoreboard(player, score, diff_input, counter_rounds):
             writing_file.writeheader()
             writing_file.writerow(dict_rows)
             
-def scoreboard_graphs():
+def scoreboard_graphs(self):
     """This function creates two graphs based on the scoreboard csv. 
     One of the graph is a bar graph that displays the scores of players on easy
     difficulty. The other graph displays a histogram of the score distrubution based on frequency.
@@ -225,9 +226,11 @@ def scoreboard_graphs():
     Creates two graphs that are present after the program has been executed.
     """
     scoreboard_df = pd.read_csv("scoreboard.csv")
-    bar_chart = scoreboard_df[(scoreboard_df["Difficulty"] == 'Easy') | (scoreboard_df["Difficulty"] == 'easy')].plot.bar(x = "Initials", y = 'Score')
-    histogram = scoreboard_df.hist(column = 'Score', bins = 5, grid = False, color = '#FFCF56')
-    plt.show()
+    df = self.diff_input
+    if df == "Easy" or  df == "easy" or df == "Medium" or df == "medium" or df == "Hard" or df == "hard" :
+        bar_chart = scoreboard_df[(scoreboard_df["Difficulty"] == df)].plot.bar(x = "Initials", y = 'Score')
+        histogram = scoreboard_df.hist(column = 'Score', bins = 5, grid = False, color = '#FFCF56')
+        plt.show()
     
 def welcome():
     """Welcome function meant to orient the user and give them information about the 
@@ -266,7 +269,7 @@ def main():
     p = Player()
     welcome()
     num_rounds = int(input("How many rounds would you like to play? "))
-    play_time, num_ducks, diff_input = difficulty()
+    play_time, num_ducks, diff_input = difficulty(p)
     num_hits = 0
     counter_rounds = 0
     while num_rounds > 0:
@@ -274,7 +277,7 @@ def main():
         hits(p, num_ducks, play_time)
         counter_rounds += 1
     scoreboard(p, scoring(p.hits, p.time, num_ducks), diff_input, counter_rounds)
-    scoreboard_graphs()
+    scoreboard_graphs(p)
     
 
 
