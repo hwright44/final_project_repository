@@ -175,8 +175,21 @@ def difficulty():
 
 
 def scoreboard(player, score, diff_input, counter_rounds):
-    """I managed to write this function due to the help I found on this website:
+    """Creates a scoreboard that contains the player's statistics. The statistics include
+    the number of ducks they hit, the amount of time it took to complete the round, the 
+    score they recieved, they difficulty they played on, and the number of rounds they played. 
+    Args:
+    player: a Player class object. Contains the hits (int) a player earned and the amount of time (float)
+    it took the player to complete the round
+    diff_input (str): represents the difficulty the player played on
+    counter_rounds (int): represents the number of rounds the player played
+    Side Effects:
+    Creates a new CSV file called "scoreboard.csv" if the file does not already exist. Information is added
+    to this file everytime the code is executed.  
+    
+    I (Hunter Wright) managed to write this function due to the help I found on this website:
     https://stackoverflow.com/questions/61708596/how-to-avoid-repeating-header-when-writing-to-csv-in-loop
+    I used code from the website as guidance on how to write the conditional that creates the file.
     """
     initials = input("Please enter your initials: ")
     column_names = ['Initials', 'Ducks_Hit', 'Time', 'Score', 'Difficulty', 'Rounds']
@@ -194,8 +207,11 @@ def scoreboard(player, score, diff_input, counter_rounds):
             writing_file.writerow(dict_rows)
             
 def scoreboard_graphs():
-    """This function creates two graphs based on the scoreboard csv. One of the graph is a bar graph that displays the scores of players on easy
+    """This function creates two graphs based on the scoreboard csv. 
+    One of the graph is a bar graph that displays the scores of players on easy
     difficulty. The other graph displays a histogram of the score distrubution based on frequency.
+    Side Effects:
+    Creates two graphs that are present after the program has been executed.
     """
     scoreboard_df = pd.read_csv("scoreboard.csv")
     bar_chart = scoreboard_df[(scoreboard_df["Difficulty"] == 'Easy') | (scoreboard_df["Difficulty"] == 'easy')].plot.bar(x = "Initials", y = 'Score')
@@ -205,9 +221,11 @@ def scoreboard_graphs():
     histogram
     
 def welcome():
-    """Welcome function meant to orient the user and give them information about the game while giving them ample time to read
+    """Welcome function meant to orient the user and give them information about the 
+    game while giving them ample time to read
     
-    Side Effects: Several Print statement and the implementation of the time module which delays the printing of each line by 3 seconds.
+    Side Effects: Several Print statements and the implementation of the time module, 
+    which delays the printing of each line by 3 seconds.
     """
     print("Welcome to Duck Hunt!")
     time.sleep(3)
