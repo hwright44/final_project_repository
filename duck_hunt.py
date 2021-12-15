@@ -9,6 +9,7 @@ X_VALUES = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
 Y_VALUES = ['1', '2', '3', '4', '5', '6', '7']
 
 class Duck:
+    """Class representing the ducks for the game of duck hunt."""
     def __init__(self):
         pass
     
@@ -35,15 +36,25 @@ class Duck:
         return duck_list
     
     def goose(self, duck_list):
+        """Chooses one duck from the list to be designated as the goose.
+        
+        Args:
+            duck_list(list of str): List of all of the ducks' positions.
+            
+        Returns:
+            goose(str): The position of the duck which has been labelled the goose."""
         goose = random.choice(duck_list)
         return goose
         
 class Player: 
-    """Provides a player class"""
+    """Class representing a player.
+    
+    Attributes:
+        hits(int): The number of ducks successfully hit.
+        time(int): The time it took for the player to shoot the ducks."""
     def __init__(self):
         self.hits = 0
         self.time = 0
-        #self.score = 0
     
     def player_coordinates(self, num_ducks, play_time):
         """ A user inputs the coordinates they think the duck is located at.
