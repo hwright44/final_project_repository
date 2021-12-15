@@ -3,7 +3,7 @@ import time
 import csv
 import os
 import pandas as pd
-import matplotlib as plt
+import matplotlib.pyplot as plt
 
 X_VALUES = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
 Y_VALUES = ['1', '2', '3', '4', '5', '6', '7']
@@ -215,10 +215,8 @@ def scoreboard_graphs():
     """
     scoreboard_df = pd.read_csv("scoreboard.csv")
     bar_chart = scoreboard_df[(scoreboard_df["Difficulty"] == 'Easy') | (scoreboard_df["Difficulty"] == 'easy')].plot.bar(x = "Initials", y = 'Score')
-    bar_chart
-    
     histogram = scoreboard_df.hist(column = 'Score', bins = 5, grid = False, color = '#FFCF56')
-    histogram
+    plt.show()
     
 def welcome():
     """Welcome function meant to orient the user and give them information about the 
