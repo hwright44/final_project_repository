@@ -51,7 +51,9 @@ class Player:
     
     Attributes:
         hits(int): The number of ducks successfully hit.
-        time(int): The time it took for the player to shoot the ducks."""
+        time(int): The time it took for the player to shoot the ducks.
+        diff_input(str): The difficulty the user chose
+        """
     def __init__(self):
         self.hits = 0
         self.time = 0
@@ -109,6 +111,8 @@ def hits(i, num_ducks, play_time):
     coordinates and finds which ducks got shot. Prints the round stats.
     
     Args:
+        i: an object of the Player class. Used to instantiate the player class in order to add up
+        the number of hits and time correctly. 
         play_time(int): The time limit for the round.
         num_ducks(int): The number of ducks in the round.
         
@@ -150,7 +154,7 @@ def scoring(num_hits, player_time, num_ducks):
     num_ducks(int): The number of ducks in the round.
     
     Returns:
-        int: The user's score for the round.
+    int: The user's score for the round, rounded to a whole number
     """
     score = num_hits * (1 / player_time)
     final_score = score * 1000
