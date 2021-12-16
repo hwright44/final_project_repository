@@ -3,7 +3,7 @@ final project repository
 
 The purpose of our duck_hunt.py file is to create a rendention of the popular NES game of the same name. Instead of being a p2p shooter, our program takes a user input fron the keyboard and prompts the user to shoot the coordinates of ducks in an alotted time based on a chosen difficulty. 
 
-To run our program: simply enter into the command line: Duck_Hunt_final.py This will also create a scoreboard.csv file in the repository.
+To run our program: simply enter into the command line: duck_hunt.py This will also create a scoreboard.csv file in the repository.
 
 The output of the program first prints the number of ducks, the number of hits, how long it took to complete the round, the final score, and the location of a bonus goose. It prompts the user to input their initals which will then be saved in a csv file along with their aforementioned stats. From this csv file two graphs will be generated one of which being a bar graph which displays the highscores of users on easy difficulty. The second graph shows the distribution of the scores for all difficulties. 
 
