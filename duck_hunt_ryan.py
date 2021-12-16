@@ -63,24 +63,24 @@ class Player:
             start_time = time.time()
             player_input = input("Quick! Shoot the duck! Enter the coordinates: ")
             if len(player_input) > 2:
-                print("too long")
+                print("INVALID INPUT: coordinate entered too long!")
             elif len(player_input) < 2:
-                print("too short")
+                print("INVALID INPUT: coordinate entered too short!")
             elif player_input[0].isdigit():
-                print("can't be int")
+                print("INVALID INPUT: x-value of coordinate cannot be a digit!")
             elif player_input[1].isalpha():
-                print("can't be a letter")
+                print("INVALID INPUT: y-value of coordinate cannot be a letter!")
             elif player_input[0] not in X_VALUES:
-                print("x-coordinate must be in the range of letters a through g!")
+                print("INVALID INPUT: x-coordinate must be in the range of letters a through g!")
             elif player_input[1] not in Y_VALUES:
-                print("INVALID: y-coordinate has to be a number 1 through 7!")
+                print("INVALID INPUT: y-coordinate has to be a number 1 through 7!")
             else:
                 player_response = player_input[0] + player_input[1]
                 total_time += (time.time() - start_time)
                 print(total_time)
                 round_calc = input_list.append(player_response)
         if total_time > play_time:
-            print(f"ran out of time, total time:{total_time}")
+            print(f"Ran out of time, total time:{total_time}")
             input_list.pop(len(input_list) - 1)
         return input_list
 
@@ -163,6 +163,12 @@ def difficulty():
         num_ducks = 7
     return play_time, num_ducks
 
+def scoreboard(initials, num_ducks, num_hits, player_time, score):
+    initials = input("Please enter your initials: ")
+    while True:
+        if len(initials) > 3:
+            print("Invalid initials. Try again.")
+        return initials
 
 def main():
     """ The user is prompted to start a game with a select number of rounds.
