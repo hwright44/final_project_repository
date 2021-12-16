@@ -125,7 +125,6 @@ def hits(i, num_ducks, play_time):
     d_list = d.duck_position(num_ducks)
     goose = d.goose(d_list)
     print(d_list)
-    #i = Player()
     start = time.time()
     i_list = i.player_coordinates(num_ducks, play_time)
     end = time.time()
